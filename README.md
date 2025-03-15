@@ -35,3 +35,24 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 "# skoolzpk" 
+
+
+Quick setup — if you’ve done this kind of thing before:
+HTTPS: https://github.com/valeednaeem/skoolzpk.git
+
+…or create a new repository on the command line
+--------------------------------------------------------------------------------------------------------------------
+echo "# skoolzpk" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/valeednaeem/skoolzpk.git
+git push -u origin main
+
+
+…or push an existing repository from the command line
+---------------------------------------------------------------------------------------------------------------------
+git remote add origin https://github.com/valeednaeem/skoolzpk.git
+git branch -M main
+git push -u origin main
