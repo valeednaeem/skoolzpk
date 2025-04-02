@@ -1,137 +1,74 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+"use client"
+import Link from 'next/link'
+import React from 'react'
+import { Form } from 'react-bootstrap'
 
-
-const year = new Date().getFullYear()
-
-const sections = [
-  // {
-  //   title: "Product",
-  //   links: [
-  //     { name: "Overview", href: "#" },
-  //     { name: "Pricing", href: "#" },
-  //     { name: "Marketplace", href: "#" },
-  //     { name: "Features", href: "#" },
-  //   ],
-  // },
-  {
-    title: "Company",
-    links: [
-      { name: "About", href: "/about" },
-      { name: "Blog", href: "/blog" },
-      { name: "Careers", href: "/careers" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { name: "Help", href: "/support" },
-      { name: "Advertise", href: "/advertise" },
-      { name: "Privacy", href: "/privacypolicy" },
-    ],
-  },
-];
-
-const Footer = () => {
+export default function Footer() {
+    const year = new Date().getFullYear()
   return (
-    <section className="py-8">
-      <div className="container">
-        <div className="flex w-full flex-col gap-8 overflow-hidden rounded-lg bg-accent p-8 my-3 md:rounded-xl lg:flex-row lg:items-center lg:p-16">
-          <div className="flex-1">
-            <h3 className="text-2xl font-semibold md:mb-2 md:text-4xl lg:mb-3">
-              Call to Action
-            </h3>
-            <p className="text-muted-foreground lg:text-lg">
-              Boost your grades with expert resources and personalized support. Subscribe now to unlock your academic potential!
-            </p>
+  <footer id="footer" className="footer position-relative light-background">
+    <div className="container footer-top">
+      <div className="row gy-4">
+        <div className="col-lg-4 col-md-6 footer-about">
+          <Link href="index.html" className="logo d-flex align-items-center">
+            <span className="sitename">Skoolz.PK</span>
+          </Link>
+          <div className="footer-contact pt-3">
+            <p>371-N, Punch Road</p>
+            <p>Samanabad, Lahore</p>
+            <p className="mt-3"><strong>Phone:</strong> <span>+923014536761</span></p>
+            <p><strong>Email:</strong> <span>info@skoolz.pk</span></p>
           </div>
-          <div className="shrink-0">
-            <p className="mt-2 text-left text-xs text-muted-foreground">
-              View our{" "}
-              <a href="/privacypolicy" className="underline hover:text-foreground">
-                privacy policy
-              </a>
-              .
-            </p>
+          <div className="social-links d-flex mt-4">
+            <Link href=""><i className="bi bi-twitter-x" /></Link>
+            <Link href=""><i className="bi bi-facebook" /></Link>
+            <Link href=""><i className="bi bi-instagram" /></Link>
+            <Link href=""><i className="bi bi-linkedin" /></Link>
           </div>
         </div>
-
-        <footer>
-          <div className="flex flex-col items-center justify-between gap-10 text-center lg:flex-row lg:text-left">
-            <div className="flex w-full max-w-96 shrink flex-col items-center justify-between gap-6 lg:items-start">
-              <div>
-                <span className="flex items-center justify-center gap-4 lg:justify-start">
-                  <Image
-                    src="/public/skoolz-logo.svg"
-                    alt=""
-                    width={44}
-                    height={44}
-                    className="h-11"
-                  />
-                  <p className="text-3xl font-semibold">Skoolz.PK</p>
-                </span>
-                <p className="mt-6 text-sm text-muted-foreground">
-                  371-N, Samanabad, Lahore, Pakistan, 54000.
-                  <Link href="tel:+923014536761">+923014536761</Link>
-                </p>
-              </div>
-              <ul className="flex items-center space-x-6 text-muted-foreground">
-                <li className="font-medium hover:text-primary">
-                  <Link href="#">
-                    <FaInstagram className="size-6" />
-                  </Link>
-                </li>
-                <li className="font-medium hover:text-primary">
-                  <Link href="#">
-                    <FaFacebook className="size-6" />
-                  </Link>
-                </li>
-                <li className="font-medium hover:text-primary">
-                  <Link href="#">
-                    <FaTwitter className="size-6" />
-                  </Link>
-                </li>
-                <li className="font-medium hover:text-primary">
-                  <Link href="#">
-                    <FaLinkedin className="size-6" />
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="grid grid-cols-3 gap-6 lg:gap-20">
-              {sections.map((section, sectionIdx) => (
-                <div key={sectionIdx}>
-                  <h3 className="mb-6 font-bold">{section.title}</h3>
-                  <ul className="space-y-4 text-sm text-muted-foreground">
-                    {section.links.map((link, linkIdx) => (
-                      <li
-                        key={linkIdx}
-                        className="font-medium hover:text-primary"
-                      >
-                        <Link href={link.href}>{link.name}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="mt-8 flex flex-col justify-between gap-4 border-t pt-8 text-center text-sm font-medium text-muted-foreground lg:flex-row lg:items-center lg:text-left">
-            <p>&copy; {year} <Link href="/" className="hover:text-black">SkoolzPK</Link>. All rights reserved.</p>
-            <ul className="flex justify-center gap-4 lg:justify-start">
-              <li className="hover:text-primary">
-                <Link href="/termsconditions"> Terms and Conditions</Link>
-              </li>
-              <li className="hover:text-primary">
-                <Link href="/privacypolicy"> Privacy Policy</Link>
-              </li>
-            </ul>
-          </div>
-        </footer>
+        <div className="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/about">About us</Link></li>
+            <li><Link href="/services">Services</Link></li>
+            <li><Link href="/terms-services">Terms of service</Link></li>
+            <li><Link href="/privacy-policy">Privacy policy</Link></li>
+          </ul>
+        </div>
+        <div className="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><Link href="#">Web Design</Link></li>
+            <li><Link href="#">Web Development</Link></li>
+            <li><Link href="#">Product Management</Link></li>
+            <li><Link href="#">Marketing</Link></li>
+            <li><Link href="#">Graphic Design</Link></li>
+          </ul>
+        </div>
+        <div className="col-lg-4 col-md-12 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+          <Form action="forms/newsletter.php" method="post" className="php-email-form">
+            <div className="newsletter-form"><input type="email" name="email" /><input type="submit" defaultValue="Subscribe" /></div>
+            <div className="loading">Loading</div>
+            <div className="error-message" />
+            <div className="sent-message">Your subscription request has been sent. Thank you!</div>
+          </Form>
+        </div>
       </div>
-    </section>
-  );
-};
+    </div>
+    <div className="container copyright text-center mt-4">
+        <p>© <span>Copyright</span> <strong className="px-1 sitename">Skoolz.PK</strong> <span>All Rights Reserved, { year }</span></p>
+        <div className="credits">
+        {/* All the links in the footer should remain intact. */}
+        {/* You can delete the links only if you've purchased the pro version. */}
+        {/* Licensing information: https://bootstrapmade.com/license/ */}
+        {/* Purchase the pro version with working PHP/AJAX contact form: [buy-url] */}
+        Designed by <Link href="https://www.wall-v.com/">Wall-V</Link>
+        </div>
+    </div>
+</footer>
 
-export default Footer;
+  )
+}
