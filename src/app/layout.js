@@ -25,9 +25,15 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <div className="container-0">
+          <div className="d-flex-container flex-column align-items-start">
+
+            <Header />
+            {children}
+            <Footer />
+
+          </div>
+        </div>
       </body>
     </html>
   );
