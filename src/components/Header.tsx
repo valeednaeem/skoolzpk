@@ -121,8 +121,8 @@ const Header = ({
     },
   ],
   mobileExtraLinks = [
-    { name: "Blog", url: "/blog" },
-    { name: "Contact", url: "/contactus" },
+    { name: "LogIn", url: "/Login" },
+    { name: "Register", url: "/register" },
     // { name: "Imprint", url: "#" },
     // { name: "Sitemap", url: "#" },
   ],
