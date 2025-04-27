@@ -25,7 +25,6 @@ import {
 } from "@/components/ui/sheet";
 import Image from "next/image";
 import Link from "next/link";
-import { useUser } from '@auth0/nextjs-auth0/client'
 import { JSX } from "react";
 
 interface MenuItem {
@@ -48,24 +47,6 @@ interface Navbar1Props {
     name: string;
     url: string;
   }[];
-  auth?: {
-    login: {
-      text: string;
-      url: string;
-    };
-    signup: {
-      text: string;
-      url: string;
-    };
-    logout: {
-      text: string;
-      url: string;
-    },
-    profile: {
-      text: string;
-      url: string;
-    }
-  };
 }
 
 const Header = ({
@@ -145,14 +126,7 @@ const Header = ({
     // { name: "Imprint", url: "#" },
     // { name: "Sitemap", url: "#" },
   ],
-  auth = {
-    login: { text: "Log In", url: "/api/auth/" },
-    signup: { text: "Sign Up", url: "/api/auth/" },
-    logout: { text: "Log Out", url: "/api/auth/logout" },
-    profile: { text: "Profile", url: "/api/auth/me" }
-  },
 }: Navbar1Props) => {
-  const { user, error, isLoading } = useUser()
   return (
     <section className="py-4">
       <div className="container">
@@ -171,23 +145,15 @@ const Header = ({
             </div>
           </div>
           <div className="flex gap-2">
-            { isLoading ? <p>Loading...</p> : <></> }
-            { error ? <p>{error.message}</p> : <></> }
-            { user ? 
-              <><Button asChild>
-                <Link href={auth.profile.url}>{auth.profile.text}</Link>
-              </Button>
-              <Button asChild variant="outline">
-                <Link href={auth.logout.url}>{auth.logout.text}</Link>
-              </Button></>
-              :
-              <><Button asChild variant="outline">
-                <Link href={auth.login.url}>{auth.login.text}</Link>
-              </Button>
-              <Button asChild>
-                <Link href={auth.signup.url}>{auth.signup.text}</Link>
-              </Button></>
-            }
+            {mobileExtraLinks.map((link, idx) => (
+              <Link
+                key={idx}
+                className="inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
+                href={link.url}
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
         </nav>
         <div className="block lg:hidden">
@@ -235,23 +201,18 @@ const Header = ({
                     </div>
                   </div>
                   <div className="flex flex-col gap-3">
-                    { isLoading ? <p>Loading...</p> : <></> }
-                    { error ? <p>{error.message}</p> : <></> }
-                    { user ?
-                      <><Button asChild>
-                        <Link href={auth.profile.url}>{auth.profile.text}</Link>
-                      </Button>
-                      <Button asChild variant="outline">
-                        <Link href={auth.logout.url}>{auth.logout.text}</Link>
-                      </Button></>
-                     :
-                      <><Button asChild variant="outline">
-                        <Link href={auth.login.url}>{auth.login.text}</Link>
-                      </Button>
-                      <Button asChild>
-                        <Link href={auth.signup.url}>{auth.signup.text}</Link>
-                      </Button></>
-                    }
+                    <Link
+                      className="inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
+                      href="/login"
+                    >
+                      Login
+                    </Link>
+                    <Link
+                      className="inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
+                      href="/register"
+                    >
+                      Register
+                    </Link>
                   </div>
                 </div>
               </SheetContent>
