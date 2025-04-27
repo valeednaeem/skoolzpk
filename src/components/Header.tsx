@@ -146,8 +146,8 @@ const Header = ({
     // { name: "Sitemap", url: "#" },
   ],
   auth = {
-    login: { text: "Log In", url: "/api/auth/sign-in" },
-    signup: { text: "Sign Up", url: "/api/auth/sign-in" },
+    login: { text: "Log In", url: "/api/auth/" },
+    signup: { text: "Sign Up", url: "/api/auth/" },
     logout: { text: "Log Out", url: "/api/auth/logout" },
     profile: { text: "Profile", url: "/api/auth/me" }
   },
